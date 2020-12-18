@@ -38,6 +38,11 @@ export class WorkerFormComponent implements OnInit {
       from: data.form.value.from,
       to: data.form.value.to,
     };
+    for (var key in obj) {
+      if (!obj[key]) {
+        return alert('please add a date');
+      }
+    }
     this.dates.push(obj);
     console.log(this.dates);
   }

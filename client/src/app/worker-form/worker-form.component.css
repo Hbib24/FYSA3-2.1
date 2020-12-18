@@ -1,0 +1,45 @@
+input,
+select {
+  width: 25%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#desc {
+  width: 25%;
+  height: 220px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10%;
+}
+
+label {
+  margin-left: 38%;
+}
+
+h1 {
+  margin-left: 42.8%;
+}
+
+.container {
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 2%;
+}
+
+#add {
+  margin-left: 53%;
+}
+
+#submit {
+  margin-left: 5px;
+}
