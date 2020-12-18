@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class WorkerFormComponent implements OnInit {
   constructor(private http: HttpClient) {}
   dates: any = [];
+  error: boolean = false;
 
   ngOnInit(): void {}
 
@@ -18,7 +19,8 @@ export class WorkerFormComponent implements OnInit {
       !data.form.value.desc ||
       this.dates.length === 0
     ) {
-      return alert('please fill the form correctly');
+      this.error = true;
+      return;
     }
     var obj = {
       title: data.form.value.title,
@@ -40,7 +42,8 @@ export class WorkerFormComponent implements OnInit {
     };
     for (var key in obj) {
       if (!obj[key]) {
-        return alert('please add a date');
+        this.error = true;
+        return;
       }
     }
     this.dates.push(obj);

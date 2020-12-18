@@ -63,6 +63,7 @@
           day: {{ date.day }} from: {{ date.from }} to: {{ date.to }}
         </li>
       </div>
+      <p *ngIf="error" id="err">Please fill the form correctly</p>
       <button
         id="add"
         mat-raised-button
