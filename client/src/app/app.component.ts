@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FYSA3';
-  switch_expression = 'workerForm';
+  switch_expression = 'worker';
 }

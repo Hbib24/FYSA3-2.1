@@ -10,6 +10,7 @@ export class WorkerFormComponent implements OnInit {
   constructor(private http: HttpClient) {}
   dates: any = [];
   error: boolean = false;
+  submitted: boolean = false;
 
   ngOnInit(): void {}
 
@@ -30,6 +31,8 @@ export class WorkerFormComponent implements OnInit {
     this.http
       .post('http://localhost:3000/worker/offer', obj)
       .subscribe((res) => {
+        this.error = false;
+        this.submitted = true;
         console.log(res);
       });
   }
