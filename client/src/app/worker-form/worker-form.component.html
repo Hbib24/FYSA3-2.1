@@ -12,14 +12,16 @@
         id="desc"
       /><br /><br />
       <label for="days">Choose a day:</label>
-      <select ngModel name="days">
+      <!-- <select ngModel name="days">
         <option value="Monday">Monday</option>
         <option value="Tuesday">Tuesday</option>
         <option value="Wednesday">Wednesday</option>
         <option value="Thursday">Thursday</option>
         <option value="Friday">Friday</option>
         <option value="Saturday">Saturday</option></select
-      ><br /><br />
+      >-->
+      <input type="date" ngModel name="days" />
+      <br /><br />
       <label for="from">From</label>
       <select ngModel name="from">
         <optgroup label="Morning">
@@ -56,10 +58,10 @@
           <option value="18 PM">18 PM</option>
         </optgroup>
       </select>
-      <div *ngIf="dates.length">
-        <p *ngFor="let date of dates">
+      <div *ngIf="dates.length" class="date">
+        <li *ngFor="let date of dates">
           day: {{ date.day }} from: {{ date.from }} to: {{ date.to }}
-        </p>
+        </li>
       </div>
       <button
         id="add"

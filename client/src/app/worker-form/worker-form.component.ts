@@ -44,6 +44,5 @@ export class WorkerFormComponent implements OnInit {
       }
     }
     this.dates.push(obj);
-    console.log(this.dates);
   }
 }

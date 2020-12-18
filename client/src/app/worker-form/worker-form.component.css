@@ -32,6 +32,14 @@ h1 {
   margin-top: 10px;
 }
 
+.date {
+  width: 24%;
+  margin-left: 37%;
+  border: 1px solid rgba(0, 0, 0, 0.541);
+  border-radius: 10px;
+  padding-left: 30px;
+}
+
 button {
   margin-top: 2%;
 }
