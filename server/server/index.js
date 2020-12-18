@@ -3,14 +3,17 @@ var bodyParser = require("body-parser");
 var db = require("../database-mongo");
 var bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
+var cors = require("cors");
+var workerOffer = require("./routers/workerOffer");
 
 var app = express();
 app.use(
   bodyParser.urlencoded({
-    extended: true
+    extended: false
   })
 );
 app.use(bodyParser.json());
+app.use(cors());
 
 // app.use(express.static(__dirname + "/../react-client/dist"));
 //select all the profs that  we have in our database with an array of workers
@@ -233,6 +236,8 @@ app.put("/order/update", function (req, res) {
     }
   });
 });
+
+app.use("/", workerOffer);
 // var port = process.env.PORT || "3000";
 app.listen(3000, function () {
   console.log("listening on port 3000!");

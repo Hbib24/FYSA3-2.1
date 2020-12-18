@@ -1,9 +1,9 @@
 var mongoose = require("mongoose");
 var bcrypt = require("bcryptjs");
-// mongoose.connect(
-//   "mongodb+srv://user:Y0QIFKndntB1HIz3@cluster0.efioa.mongodb.net/DIGITAL-DEALERS?retryWrites=true&w=majority",
-//   { useNewUrlParser: true, useUnifiedTopology: true }
-// );
+mongoose.connect(
+  "mongodb+srv://user:Y0QIFKndntB1HIz3@cluster0.efioa.mongodb.net/DIGITAL-DEALERS?retryWrites=true&w=majority",
+  { useNewUrlParser: true, useUnifiedTopology: true, createIndexes: true }
+);
 //
 //user
 //Y0QIFKndntB1HIz3
@@ -12,6 +12,12 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function () {
   console.log("we're connected!");
+});
+
+var offerSchema = mongoose.Schema({
+  title: String,
+  desc: String,
+  dates: Array
 });
 
 var workerSchema = mongoose.Schema({
@@ -72,6 +78,7 @@ var profSchema = mongoose.Schema({
   img: String
 });
 
+var Offer = mongoose.model("Offer", offerSchema);
 var Worker = mongoose.model("Worker", workerSchema);
 var User = mongoose.model("User", userSchema);
 var Prof = mongoose.model("Prof", profSchema);
@@ -83,6 +90,10 @@ var Order = mongoose.model("Order", orderSchema);
 // });
 
 // order.save();
+
+var insertOffer = function (data) {
+  return Offer.create(data);
+};
 
 var selectAllProf = function (callback) {
   Prof.find({})
@@ -276,3 +287,4 @@ module.exports.selectWorkerPandingOrders = selectWorkerPandingOrders;
 module.exports.selectWorkerDoingOrders = selectWorkerDoingOrders;
 module.exports.selectWorkerDoneOrders = selectWorkerDoneOrders;
 module.exports.selectUserOrders = selectUserOrders;
+module.exports.insertOffer = insertOffer;
