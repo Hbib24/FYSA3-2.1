@@ -8,6 +8,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { FormsModule } from '@angular/forms';
+import { WorkerNavComponent } from './worker-nav/worker-nav.component';
+import { WorkerHomeComponent } from './worker-home/worker-home.component';
 
 const routes: Routes = [
   {
@@ -17,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [WorkerNavComponent, WorkerFormComponent, WorkerHomeComponent],
   imports: [
     CommonModule,
     RouterModule.forRoot(routes),
@@ -27,7 +30,8 @@ const routes: Routes = [
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    FormsModule,
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, WorkerNavComponent],
 })
 export class RoutingModule {}

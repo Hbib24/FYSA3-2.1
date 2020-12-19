@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { RoutingModule } from './worker/routing.module';
 import { NgModule, Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 
@@ -19,18 +18,11 @@ export function momentAdapterFactory() {
   return adapterFactory(moment);
 }
 @NgModule({
-  declarations: [
-    AppComponent,
-    UserComponent,
-    AdminComponent,
-    WorkerComponent,
-    WorkerFormComponent,
-  ],
+  declarations: [AppComponent, UserComponent, AdminComponent, WorkerComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule,
     MatButtonModule,
     RoutingModule,
   ],
