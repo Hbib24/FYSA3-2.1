@@ -95,6 +95,10 @@ var insertOffer = function (data) {
   return Offer.create(data);
 };
 
+var getAllOffers = function () {
+  return Offer.find({});
+};
+
 var selectAllProf = function (callback) {
   Prof.find({})
     .populate("workers")
@@ -288,3 +292,4 @@ module.exports.selectWorkerDoingOrders = selectWorkerDoingOrders;
 module.exports.selectWorkerDoneOrders = selectWorkerDoneOrders;
 module.exports.selectUserOrders = selectUserOrders;
 module.exports.insertOffer = insertOffer;
+module.exports.getAllOffers = getAllOffers;
