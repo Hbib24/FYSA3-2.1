@@ -14,6 +14,7 @@ import { WorkerHomeComponent } from './worker-home/worker-home.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { WorkerOffersComponent } from './worker-offers/worker-offers.component';
 
 const routes: Routes = [
   {
@@ -24,10 +25,19 @@ const routes: Routes = [
     path: 'worker/post',
     component: WorkerFormComponent,
   },
+  {
+    path: 'worker/offers',
+    component: WorkerOffersComponent,
+  },
 ];
 
 @NgModule({
-  declarations: [WorkerNavComponent, WorkerFormComponent, WorkerHomeComponent],
+  declarations: [
+    WorkerNavComponent,
+    WorkerFormComponent,
+    WorkerHomeComponent,
+    WorkerOffersComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule.forRoot(routes),

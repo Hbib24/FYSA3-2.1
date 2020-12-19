@@ -99,6 +99,10 @@ var getAllOffers = function () {
   return Offer.find({});
 };
 
+var getOfferByUsername = function (username) {
+  return Offer.find({ username: username });
+};
+
 var selectAllProf = function (callback) {
   Prof.find({})
     .populate("workers")
@@ -293,3 +297,4 @@ module.exports.selectWorkerDoneOrders = selectWorkerDoneOrders;
 module.exports.selectUserOrders = selectUserOrders;
 module.exports.insertOffer = insertOffer;
 module.exports.getAllOffers = getAllOffers;
+module.exports.getOfferByUsername = getOfferByUsername;

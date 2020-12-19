@@ -17,4 +17,11 @@ router.route("/worker/offer").get(function (req, res) {
   });
 });
 
+router.route("/worker/offer/:username").get(function (req, res) {
+  offer.getOfferByUsername(req.params.username).then((data) => {
+    res.send(data);
+    res.end();
+  });
+});
+
 module.exports = router;

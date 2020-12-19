@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { WorkerComponent } from './worker/worker.component';
-import { WorkerFormComponent } from './worker/worker-form/worker-form.component';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 import * as moment from 'moment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
