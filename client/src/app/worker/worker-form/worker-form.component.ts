@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-worker-form',
@@ -7,10 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./worker-form.component.css'],
 })
 export class WorkerFormComponent implements OnInit {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
   dates: any = [];
   error: boolean = false;
-  submitted: boolean = false;
 
   ngOnInit(): void {}
 
@@ -32,8 +32,7 @@ export class WorkerFormComponent implements OnInit {
       .post('http://localhost:3000/worker/offer', obj)
       .subscribe((res) => {
         this.error = false;
-        this.submitted = true;
-        console.log(res);
+        this.router.navigate(['/']);
       });
   }
 

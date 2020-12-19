@@ -56,17 +56,10 @@
         </li>
       </div>
       <p *ngIf="error" id="err">Please fill the form correctly</p>
-      <p *ngIf="submitted" id="sub">Offer submitted!</p>
-      <button
-        id="add"
-        mat-raised-button
-        color="primary"
-        type="button"
-        (click)="addDate(f)"
-      >
+      <button id="add" mat-raised-button type="button" (click)="addDate(f)">
         Add date
       </button>
-      <button id="submit" mat-raised-button color="blue" type="submit">
+      <button id="submit" color="primary" mat-raised-button type="submit">
         Submit
       </button>
     </form>

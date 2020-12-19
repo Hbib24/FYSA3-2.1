@@ -11,8 +11,15 @@ import { MatListModule } from '@angular/material/list';
 import { FormsModule } from '@angular/forms';
 import { WorkerNavComponent } from './worker-nav/worker-nav.component';
 import { WorkerHomeComponent } from './worker-home/worker-home.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: WorkerHomeComponent,
+  },
   {
     path: 'worker/post',
     component: WorkerFormComponent,
@@ -31,6 +38,9 @@ const routes: Routes = [
     MatIconModule,
     MatListModule,
     FormsModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
   ],
   exports: [RouterModule, WorkerNavComponent],
 })
