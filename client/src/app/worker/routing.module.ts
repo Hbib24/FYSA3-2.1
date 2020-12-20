@@ -15,6 +15,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { WorkerOffersComponent } from './worker-offers/worker-offers.component';
+import { WorkerProfileComponent } from './worker-profile/worker-profile.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
     path: 'worker/offers',
     component: WorkerOffersComponent,
   },
+  {
+    path: 'worker/profile',
+    component: WorkerProfileComponent,
+  },
 ];
 
 @NgModule({
@@ -37,6 +42,7 @@ const routes: Routes = [
     WorkerFormComponent,
     WorkerHomeComponent,
     WorkerOffersComponent,
+    WorkerProfileComponent,
   ],
   imports: [
     CommonModule,
