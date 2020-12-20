@@ -24,6 +24,7 @@ export class WorkerFormComponent implements OnInit {
       return;
     }
     var obj = {
+      worker_id: '5fdf4ec4f8160550344eec2e',
       title: data.form.value.title,
       desc: data.form.value.desc,
       dates: this.dates,
@@ -32,7 +33,7 @@ export class WorkerFormComponent implements OnInit {
       .post('http://localhost:3000/worker/offer', obj)
       .subscribe((res) => {
         this.error = false;
-        this.router.navigate(['/']);
+        this.router.navigate(['/worker/offers']);
       });
   }
 

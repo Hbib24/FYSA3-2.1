@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-worker-offers',
@@ -20,18 +21,11 @@ export class WorkerOffersComponent {
           { title: 'Card 4', cols: 1, rows: 1 },
         ];
       }
-
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 },
-      ];
     })
   );
-  getConfig(username) {
+  getConfig() {
     this.http
-      .get(`http://localhost:3000/worker/offer/${username}`)
+      .get(`http://localhost:3000/worker/offer/5fdf4ec4f8160550344eec2e`)
       .subscribe((data: any) => {
         for (let i = 0; i < data.length; i++) {
           data[i]['cols'] = 1;
@@ -49,8 +43,20 @@ export class WorkerOffersComponent {
         );
       });
   }
+
+  delete(id) {
+    this.http
+      .delete(`http://localhost:3000/worker/offer/${id}`)
+      .subscribe(() => {
+        location.reload();
+      });
+  }
+
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private http: HttpClient
-  ) {}
+    private http: HttpClient,
+    private router: Router
+  ) {
+    this.getConfig();
+  }
 }

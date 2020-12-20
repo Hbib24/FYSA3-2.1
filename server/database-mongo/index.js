@@ -1,5 +1,10 @@
 var mongoose = require("mongoose");
 var bcrypt = require("bcryptjs");
+var { Offer } = require("./models/offerModel.js");
+var { Order } = require("./models/orderModel.js");
+var { Prof } = require("./models/profModel.js");
+var { User } = require("./models/userModel.js");
+var { Worker } = require("./models/workerModel.js");
 mongoose.connect(
   "mongodb+srv://user:Y0QIFKndntB1HIz3@cluster0.efioa.mongodb.net/DIGITAL-DEALERS?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true }
@@ -13,76 +18,6 @@ db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function () {
   console.log("we're connected!");
 });
-
-var offerSchema = mongoose.Schema({
-  title: String,
-  desc: String,
-  dates: Array
-});
-
-var workerSchema = mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  first_name: String,
-  last_name: String,
-  email: String,
-  phone: Number,
-  location: String,
-  prof: String,
-  rate: Number,
-  password: {
-    type: String,
-    required: true
-  },
-  infos: String
-});
-var userSchema = mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  first_name: String,
-  last_name: String,
-  email: String,
-  phone: Number,
-  location: String,
-  password: {
-    type: String,
-    required: true
-  }
-});
-var orderSchema = mongoose.Schema({
-  user_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User"
-  },
-  worker_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Worker"
-  },
-  info: String,
-  date: String,
-  state: String,
-  location: String
-});
-
-var profSchema = mongoose.Schema({
-  name: String,
-  workers: {
-    type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Worker" }]
-  },
-  img: String
-});
-
-var Offer = mongoose.model("Offer", offerSchema);
-var Worker = mongoose.model("Worker", workerSchema);
-var User = mongoose.model("User", userSchema);
-var Prof = mongoose.model("Prof", profSchema);
-var Order = mongoose.model("Order", orderSchema);
 
 // const prof = new Prof({
 //   name: "electrician",
@@ -99,8 +34,12 @@ var getAllOffers = function () {
   return Offer.find({});
 };
 
-var getOfferByUsername = function (username) {
-  return Offer.find({ username: username });
+var getOffersByWorkerId = function (id) {
+  return Offer.find({ worker_id: id });
+};
+
+var deleteOfferById = function (id) {
+  return Offer.findByIdAndDelete(id);
 };
 
 var selectAllProf = function (callback) {
@@ -114,7 +53,9 @@ var selectAllProf = function (callback) {
       }
     });
 };
-
+var findAllWorker = (callback) => {
+  Worker.find().exec(callback);
+};
 var selectOneWorker = function (worker, callback) {
   Worker.findOne({ username: worker.username }, function (err, result) {
     if (err) {
@@ -129,7 +70,9 @@ var selectOneWorker = function (worker, callback) {
     }
   });
 };
-
+var findAllUser = function (callback) {
+  User.find({}).exec(callback);
+};
 var selectOneUser = function (user, callback) {
   console.log("Yooo");
   User.findOne({ username: user.username }, function (err, result) {
@@ -296,5 +239,8 @@ module.exports.selectWorkerDoingOrders = selectWorkerDoingOrders;
 module.exports.selectWorkerDoneOrders = selectWorkerDoneOrders;
 module.exports.selectUserOrders = selectUserOrders;
 module.exports.insertOffer = insertOffer;
+module.exports.findAllUser = findAllUser;
+module.exports.findAllWorker = findAllWorker;
+module.exports.getOffersByWorkerId = getOffersByWorkerId;
 module.exports.getAllOffers = getAllOffers;
-module.exports.getOfferByUsername = getOfferByUsername;
+module.exports.deleteOfferById = deleteOfferById;
