@@ -23,7 +23,7 @@ import { MatSortModule } from '@angular/material/sort';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'worker/home',
     component: WorkerHomeComponent,
   },
   {
@@ -72,4 +72,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule, WorkerNavComponent],
 })
-export class RoutingModule {}
+export class WorkerRoutingModule {}

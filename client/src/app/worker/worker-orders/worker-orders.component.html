@@ -34,10 +34,25 @@
       <th mat-header-cell *matHeaderCellDef>Action</th>
       <td mat-cell *matCellDef="let element">
         <div *ngIf="element.state === 'pending'">
-          <button (click)="action(element._id, 'accepted')">Accept</button>
+          <button mat-raised-button (click)="action(element._id, 'accepted')">
+            Accept
+          </button>
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="action(element._id, 'refused')"
+          >
+            Refuse
+          </button>
         </div>
         <div *ngIf="element.state === 'accepted'">
-          <button (click)="action(element._id, 'canceled')">Cancel</button>
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="action(element._id, 'canceled')"
+          >
+            Cancel
+          </button>
         </div>
       </td>
     </ng-container>

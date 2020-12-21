@@ -14,11 +14,23 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { UserNavComponent } from './user-nav/user-nav.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserHomeComponent } from './user-home/user-home.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'user/home',
+    component: UserHomeComponent,
+  },
+  {
+    path: 'user/profile',
+    component: UserProfileComponent,
+  },
+];
 
 @NgModule({
-  declarations: [],
+  declarations: [UserNavComponent, UserProfileComponent, UserHomeComponent],
 
   imports: [
     CommonModule,
@@ -37,6 +49,6 @@ const routes: Routes = [];
     MatPaginatorModule,
     MatSortModule,
   ],
-  exports: [RouterModule],
+  exports: [RouterModule, UserNavComponent],
 })
-export class RoutingModule {}
+export class UserRoutingModule {}

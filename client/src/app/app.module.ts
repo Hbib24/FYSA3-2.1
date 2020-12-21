@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { RoutingModule } from './worker/worker.routing.module';
+import { WorkerRoutingModule } from './worker/worker.routing.module';
 import { NgModule, Component } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 
 import { AppComponent } from './app.component';
-
+import { UserRoutingModule } from './user/user.routing.module';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { WorkerComponent } from './worker/worker.component';
@@ -18,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
-    RoutingModule,
+    WorkerRoutingModule,
+    UserRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

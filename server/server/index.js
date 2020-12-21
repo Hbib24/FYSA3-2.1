@@ -69,10 +69,9 @@ app.post("/login", (req, res) => {
 });
 
 //the user update
-app.put("/user/update", function (req, res) {
-  db.updateUser(req.body.data, (data) => {
-    console.log(data);
-    res.send(data);
+app.put("/user/update/:id", function (req, res) {
+  db.updateUser(req.params.id, req.body).then((data) => {
+    res.json(data);
   });
 });
 //the worker update

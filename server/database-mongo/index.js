@@ -132,9 +132,10 @@ const addUser = function (user, callback) {
 };
 
 var selectAllOrders = function (callback) {
-  Order.find().populate("offer")
+  Order.find()
+    .populate("offer")
     .populate("user")
-    
+
     .exec((err, orders) => {
       if (err) {
         callback(err, null);
@@ -197,12 +198,8 @@ var selectUserOrders = function (data, callback) {
       }
     });
 };
-var updateUser = async function (user, callback) {
-  var userid = user._id;
-  delete user._id;
-  console.log(user);
-  const res = await User.replaceOne({ _id: userid }, user);
-  callback(res);
+var updateUser = async function (id, user) {
+  return User.findByIdAndUpdate(id, user);
 };
 var updateWorker = function (id, obj) {
   return Worker.findByIdAndUpdate(id, obj);
