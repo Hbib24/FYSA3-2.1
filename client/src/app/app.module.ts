@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { RoutingModule } from './worker/routing.module';
+import { RoutingModule } from './worker/worker.routing.module';
 import { NgModule, Component } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
@@ -10,12 +10,7 @@ import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { WorkerComponent } from './worker/worker.component';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
-import * as moment from 'moment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-export function momentAdapterFactory() {
-  return adapterFactory(moment);
-}
 @NgModule({
   declarations: [AppComponent, UserComponent, AdminComponent, WorkerComponent],
   imports: [

@@ -224,13 +224,11 @@ app.post("/api/orders/user", function (req, res) {
   });
 });
 // whenever the worker check an order doneor acceptd it updates the state of that order
-app.put("/order/update", function (req, res) {
-  console.log(req.body);
+app.put("/api/order/update", function (req, res) {
   db.updateOrder(req.body, function (err, data) {
     if (err) {
       res.sendStatus(500);
     } else {
-      console.log(data);
       res.json(data);
     }
   });
