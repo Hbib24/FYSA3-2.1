@@ -20,7 +20,6 @@ app.use(cors());
 app.get("/api/profs", function (req, res) {
   console.log("here");
   db.selectAllProf(function (err, data) {
-    console.log(data, err);
     if (err) {
       res.sendStatus(500);
     } else {
@@ -128,7 +127,7 @@ app.get("/orders", function (req, res) {
     if (err) {
       res.sendStatus(500);
     } else {
-      res.json(data);
+      res.send(data);
     }
   });
 });

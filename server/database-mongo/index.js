@@ -132,8 +132,9 @@ const addUser = function (user, callback) {
 };
 
 var selectAllOrders = function (callback) {
-  Order.find({})
-    .populate("worker_id")
+  Order.find().populate("offer")
+    .populate("user")
+    
     .exec((err, orders) => {
       if (err) {
         callback(err, null);

@@ -38,6 +38,10 @@ const routes: Routes = [
     path: 'worker/profile',
     component: WorkerProfileComponent,
   },
+  {
+    path: 'worker/orders',
+    component: WorkerOrdersComponent,
+  },
 ];
 
 @NgModule({

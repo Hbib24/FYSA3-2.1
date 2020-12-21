@@ -1,13 +1,13 @@
 var mongoose = require("mongoose");
 
 var orderSchema = mongoose.Schema({
-  user_id: {
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"
   },
-  worker_id: {
+  offer: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Worker"
+    ref: "Offer"
   },
   info: String,
   date: String,
