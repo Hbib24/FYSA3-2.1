@@ -54,7 +54,7 @@ var selectAllProf = function (callback) {
     });
 };
 var findAllWorker = (callback) => {
-  Worker.find().exec(callback);
+  Worker.find().populate("prof").exec(callback);
 };
 var selectOneWorker = function (worker, callback) {
   Worker.findOne({ username: worker.username }, function (err, result) {
@@ -203,13 +203,10 @@ var updateUser = async function (user, callback) {
   const res = await User.replaceOne({ _id: userid }, user);
   callback(res);
 };
-var updateWorker = async function (worker, callback) {
-  var workerid = worker._id;
-  delete worker._id;
-  console.log(worker);
-  const res = await Worker.replaceOne({ _id: workerid }, worker);
-  callback(res);
+var updateWorker = function (id, obj) {
+  return Worker.findByIdAndUpdate(id, obj);
 };
+
 var updateOrder = function (data, callback) {
   Order.findOneAndUpdate(
     { _id: data.id },

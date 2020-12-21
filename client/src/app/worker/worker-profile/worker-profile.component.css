@@ -6,11 +6,16 @@
   text-align: center;
   font-family: arial;
 }
-
-h1 {
-  margin-top: 1%;
-  margin-left: 1%;
+#err {
+  color: red;
+  font-size: 20px;
 }
+
+.h1 {
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
 .container {
   margin-top: 3%;
 }
@@ -42,4 +47,33 @@ a {
 button:hover,
 a:hover {
   opacity: 0.7;
+}
+
+#cancel {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #959595e7;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+#cancel:hover,
+a:hover {
+  opacity: 0.7;
+}
+
+input,
+select {
+  width: 20%;
+  padding: 5px 2px;
+  margin: 1px;
+  box-sizing: border-box;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }

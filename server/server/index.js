@@ -77,10 +77,10 @@ app.put("/user/update", function (req, res) {
   });
 });
 //the worker update
-app.put("/worker/update", function (req, res) {
-  db.updateWorker(req.body.data, (data) => {
-    console.log(data);
+app.put("/worker/:id", function (req, res) {
+  db.updateWorker(req.params.id, req.body).then((data) => {
     res.send(data);
+    res.end();
   });
 });
 //Worker rigester

@@ -1,4 +1,4 @@
-<h1>Profile page</h1>
+<h1 class="h1">Profile page</h1>
 <div class="container">
   <div class="card">
     <img
@@ -6,15 +6,50 @@
       alt="John"
       style="width: 40%"
     />
-    <h1>John Doe</h1>
-    <p class="title">CEO & Founder, Example</p>
-    <p>Harvard University</p>
+    <h1>
+      {{ username }}
+    </h1>
+    <input
+      [(ngModel)]="username"
+      *ngIf="edit"
+      placeholder="edit your username"
+    />
+    <br />
+    <h3>
+      {{ firstname }} {{ lastname }} <br />
+      <input *ngIf="edit" [(ngModel)]="firstname" /><input
+        [(ngModel)]="lastname"
+        *ngIf="edit"
+      /><br />
+      {{ email }} {{ phone }} <br />
+      <input *ngIf="edit" [(ngModel)]="email" /><input
+        *ngIf="edit"
+        [(ngModel)]="phone"
+      /><br />
+      {{ location }} {{ profselect }} <br />
+      <input *ngIf="edit" [(ngModel)]="location" /><select
+        *ngIf="edit"
+        [(ngModel)]="profselect"
+      >
+        <option *ngFor="let prof of profs" value="{{ prof.name }}">
+          {{ prof.name }}
+        </option></select
+      ><br />
+      rate: 8 <br /><br />
+      {{ info }}
+    </h3>
+    <input *ngIf="edit" [(ngModel)]="info" />
     <div style="margin: 24px 0">
       <a href="#"><i class="fa fa-dribbble"></i></a>
       <a href="#"><i class="fa fa-twitter"></i></a>
       <a href="#"><i class="fa fa-linkedin"></i></a>
       <a href="#"><i class="fa fa-facebook"></i></a>
     </div>
-    <p><button>Edit profile</button></p>
+    <p><button (click)="toggleEdit()" *ngIf="!edit">Edit profile</button></p>
+    <p id="err" *ngIf="edit && err">Please fill the information correctly!</p>
+    <p>
+      <button id="cancel" *ngIf="edit" (click)="toggleEdit()">Cancel</button>
+      <button *ngIf="edit" (click)="submit()">Apply changes</button>
+    </p>
   </div>
 </div>

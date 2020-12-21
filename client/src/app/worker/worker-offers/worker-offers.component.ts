@@ -11,18 +11,7 @@ import { Router } from '@angular/router';
 })
 export class WorkerOffersComponent {
   /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 },
-        ];
-      }
-    })
-  );
+  cards: any;
   getConfig() {
     this.http
       .get(`http://localhost:3000/worker/offer/5fdf4ec4f8160550344eec2e`)

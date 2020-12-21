@@ -16,6 +16,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { WorkerOffersComponent } from './worker-offers/worker-offers.component';
 import { WorkerProfileComponent } from './worker-profile/worker-profile.component';
+import { WorkerOrdersComponent } from './worker-orders/worker-orders.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 const routes: Routes = [
   {
@@ -43,6 +47,7 @@ const routes: Routes = [
     WorkerHomeComponent,
     WorkerOffersComponent,
     WorkerProfileComponent,
+    WorkerOrdersComponent,
   ],
   imports: [
     CommonModule,
@@ -57,6 +62,9 @@ const routes: Routes = [
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
   ],
   exports: [RouterModule, WorkerNavComponent],
 })
