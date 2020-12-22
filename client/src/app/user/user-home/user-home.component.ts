@@ -20,7 +20,16 @@ export class UserHomeComponent {
   }
 
   order(x) {
-    console.log(x);
+    var obj = {
+      offer: x._id,
+      info: x.desc,
+      location: x.title,
+      date: x.dates[0].day,
+      state: 'pending',
+    };
+    this.http.post('http://localhost:3000/addorder', obj).subscribe((res) => {
+      console.log(res);
+    });
   }
 
   getConfig() {

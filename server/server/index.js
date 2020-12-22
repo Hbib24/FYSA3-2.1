@@ -98,7 +98,7 @@ app.post("/workerRegister", (req, res) => {
 //user adds the order
 app.post("/addorder", (req, res) => {
   console.log(req.body);
-  var data = req.body.data;
+  var data = req.body;
   db.addOrder(data, (err, order) => {
     if (err) {
       res.send("Order not created");
